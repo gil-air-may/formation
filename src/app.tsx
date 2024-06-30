@@ -1,13 +1,18 @@
 import { styled } from "styled-components";
 import { Button, Text } from "@chakra-ui/react";
 
+const test = () => {
+  console.log("running test");
+  window.electron.writeFile("testing.txt", "hello");
+};
+
 const App = () => {
   return (
     <MainBox>
       <Text fontSize="xl">Enter formation:</Text>
 
       <div>
-        <Button>as Server</Button>
+        <Button onClick={() => test()}>as Server</Button>
         <Button>as Client</Button>
       </div>
 
