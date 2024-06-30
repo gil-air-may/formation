@@ -26,8 +26,7 @@
  * ```
  */
 
-import "./index.css";
-import "./app";
+import "../src/react-root";
 
 console.log(
   '👋 This message is being logged by "renderer.ts", included via Vite'
