@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
 
 import { ChakraProvider } from "@chakra-ui/react";
-import App from "./app";
+import ModeSelect from "./pages/mode-select";
+import ModeServer from "./pages/mode-server";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -28,7 +29,7 @@ const Main = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <ChakraProvider>
-        <App />
+        <ModeServer />
       </ChakraProvider>
     </ThemeProvider>
   );

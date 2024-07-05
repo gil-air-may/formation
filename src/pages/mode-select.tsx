@@ -6,7 +6,7 @@ const test = () => {
   window.electron.writeFile("testing.txt", "hello");
 };
 
-const App = () => {
+const ModeSelect = () => {
   return (
     <MainBox>
       <Text fontSize="xl">Enter formation:</Text>
@@ -21,7 +21,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default ModeSelect;
 
 const MainBox = styled.div`
   display: flex;

@@ -1,0 +1,58 @@
+.ModeServer {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel, .right-panel {
+  padding: 20px;
+}
+
+.left-panel {
+  width: 70%;
+  border-right: 1px solid #ccc;
+}
+
+.right-panel {
+  width: 30%;
+  overflow-y: auto;
+}
+
+.setup-layout, .connected-devices, .logs {
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  display: flex;
+  height: 500px;
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+}
+
+.logs {
+  max-height: 400px;
+}
+
+.logs p {
+  margin: 0;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
