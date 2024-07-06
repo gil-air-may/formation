@@ -11,8 +11,8 @@ import GridLayout from "react-grid-layout";
 const ModeServer: React.FC = () => {
   const layout = [
     { i: "a", x: 2, y: 2, w: 1, h: 1, static: true },
-    { i: "b", x: 1, y: 0, w: 1, h: 1 },
-    { i: "c", x: 4, y: 0, w: 1, h: 1 },
+    { i: "b", x: 2, y: 2, w: 1, h: 1 },
+    { i: "c", x: 2, y: 2, w: 1, h: 1 },
   ];
 
   return (
@@ -28,6 +28,8 @@ const ModeServer: React.FC = () => {
           rowHeight={40}
           width={1000}
           isResizable={false}
+          isDroppable={true}
+          compactType={null}
         >
           <div className="grid-item" key="a">
             a
