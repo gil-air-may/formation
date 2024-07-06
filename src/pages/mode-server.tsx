@@ -4,13 +4,15 @@ import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./ModeServer.css";
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
+import GridLayout from "react-grid-layout";
+
+// const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const ModeServer: React.FC = () => {
   const layout = [
-    { i: "a", x: 0, y: 0, w: 1, h: 1 },
-    { i: "b", x: 0, y: 0, w: 1, h: 1 },
-    { i: "c", x: 0, y: 0, w: 1, h: 1 },
+    { i: "a", x: 2, y: 2, w: 1, h: 1, static: true },
+    { i: "b", x: 1, y: 0, w: 1, h: 1 },
+    { i: "c", x: 4, y: 0, w: 1, h: 1 },
   ];
 
   return (
@@ -18,27 +20,25 @@ const ModeServer: React.FC = () => {
       <div className="left-panel">
         <div className="setup-layout">
           <h2>Formation</h2>
-          <ResponsiveGridLayout
-            className="layout"
-            layouts={{ lg: layout }}
-            breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-            cols={{ lg: 64, md: 64, sm: 12, xs: 16, xxs: 1 }}
-            autoSize={true}
-            rowHeight={30}
-            width={30}
-            isResizable={false}
-          >
-            <div key="a" className="grid-item">
-              Item 1
-            </div>
-            <div key="b" className="grid-item">
-              Item 2
-            </div>
-            <div key="c" className="grid-item">
-              Item 3
-            </div>
-          </ResponsiveGridLayout>
         </div>
+        <GridLayout
+          className="layout"
+          layout={layout}
+          cols={10}
+          rowHeight={40}
+          width={1000}
+          isResizable={false}
+        >
+          <div className="grid-item" key="a">
+            a
+          </div>
+          <div className="grid-item" key="b">
+            b
+          </div>
+          <div className="grid-item" key="c">
+            c
+          </div>
+        </GridLayout>
         <div className="connected-devices">
           <h2>Connected Devices</h2>
           <table>
