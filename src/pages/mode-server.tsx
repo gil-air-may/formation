@@ -3,31 +3,50 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./ModeServer.css";
-
+import { useState } from "react";
 import GridLayout from "react-grid-layout";
 
 // const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const ModeServer: React.FC = () => {
-  const layout = [
+  const initialLayout = [
     { i: "a", x: 2, y: 2, w: 1, h: 1, static: true },
     { i: "b", x: 2, y: 2, w: 1, h: 1 },
     { i: "c", x: 2, y: 2, w: 1, h: 1 },
   ];
+
+  const [layout, setLayout] = useState<GridLayout.Layout[]>(initialLayout);
+
+  const changeLayout = () => {
+    setLayout([
+      ...layout,
+      { i: "a", x: 1, y: 2, w: 1, h: 1, static: true },
+      { i: "b", x: 1, y: 2, w: 1, h: 1 },
+      { i: "c", x: 1, y: 2, w: 1, h: 1 },
+    ]);
+  };
+
+  const validateLayout = (layout: GridLayout.Layout[]) => {
+    console.log(layout);
+    changeLayout();
+  };
 
   return (
     <div className="ModeServer">
       <div className="left-panel">
         <div className="setup-layout">
           <h2>Formation</h2>
+          <button onClick={() => changeLayout()}>move</button>
         </div>
         <GridLayout
           className="layout"
           layout={layout}
-          cols={10}
+          cols={4}
           rowHeight={40}
-          width={1000}
+          width={500}
+          maxRows={6}
           isResizable={false}
+          onLayoutChange={(layout) => validateLayout(layout)}
           isDroppable={true}
           compactType={null}
         >
