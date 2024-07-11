@@ -10,9 +10,9 @@ import GridLayout from "react-grid-layout";
 
 const ModeServer: React.FC = () => {
   const initialLayout = [
-    { i: "a", x: 2, y: 2, w: 1, h: 1, static: true },
+    { i: "a", x: 2, y: 1, w: 1, h: 1, static: true },
     { i: "b", x: 2, y: 2, w: 1, h: 1 },
-    { i: "c", x: 2, y: 2, w: 1, h: 1 },
+    { i: "c", x: 2, y: 3, w: 1, h: 1 },
   ];
 
   const [layout, setLayout] = useState<GridLayout.Layout[]>(initialLayout);
@@ -20,15 +20,38 @@ const ModeServer: React.FC = () => {
   const changeLayout = () => {
     setLayout([
       ...layout,
-      { i: "a", x: 1, y: 2, w: 1, h: 1, static: true },
+      { i: "a", x: 1, y: 1, w: 1, h: 1, static: true },
       { i: "b", x: 1, y: 2, w: 1, h: 1 },
-      { i: "c", x: 1, y: 2, w: 1, h: 1 },
+      { i: "c", x: 1, y: 3, w: 1, h: 1 },
     ]);
   };
 
   const validateLayout = (layout: GridLayout.Layout[]) => {
     console.log(layout);
-    changeLayout();
+    layout.forEach((sys, n) => {
+      const neighbours = layout.filter((other, i) => {
+        if (n == i) return false;
+        if (
+          other.y === sys.y &&
+          (other.x === sys.x + 1 || other.x === sys.x - 1)
+        ) {
+          // console.log("other", other.i, "sys", sys.i, "IF ONE");
+          return true;
+        }
+        if (
+          other.x === sys.x &&
+          (other.y === sys.y + 1 || other.y === sys.y - 1)
+        ) {
+          // console.log("other", other.i, "sys", sys.i, "IF 2");
+          return true;
+        }
+
+        console.log("other", other.i, "sys", sys.i, "ELSE");
+        return false;
+      });
+
+      if (neighbours.length === 0) changeLayout();
+    });
   };
 
   return (
