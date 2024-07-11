@@ -72,6 +72,8 @@ const ModeServer: React.FC = () => {
           onLayoutChange={(layout) => validateLayout(layout)}
           isDroppable={true}
           compactType={null}
+          allowOverlap={false}
+          preventCollision={true}
         >
           <div className="grid-item" key="a">
             a
